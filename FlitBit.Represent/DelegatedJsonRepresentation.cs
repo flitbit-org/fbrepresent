@@ -5,7 +5,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace FlitBit.Core.Representation
+namespace FlitBit.Represent
 {	
 	/// <summary>
 	/// Delegated JSON representation transform.

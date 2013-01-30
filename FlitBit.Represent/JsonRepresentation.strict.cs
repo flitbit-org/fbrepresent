@@ -4,7 +4,7 @@
 
 using Newtonsoft.Json;
 
-namespace FlitBit.Core.Representation
+namespace FlitBit.Represent
 {
 	/// <summary>
 	/// Transforms an items into a JSON representation, erroring on missing members.

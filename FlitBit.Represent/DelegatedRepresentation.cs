@@ -5,7 +5,7 @@
 using System;
 using System.Diagnostics.Contracts;
 
-namespace FlitBit.Core.Representation
+namespace FlitBit.Represent
 {
 	/// <summary>
 	/// Delegated representation transform. Transforms target type T into representation R, and upon

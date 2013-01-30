@@ -2,7 +2,7 @@
 // For licensing information see License.txt (MIT style licensing).
 #endregion
 
-namespace FlitBit.Core.Representation
+namespace FlitBit.Represent
 {
 	/// <summary>
 	/// Transforms source item into an alternate representation.
@@ -17,6 +17,7 @@ namespace FlitBit.Core.Representation
 		/// <param name="item">the item</param>
 		/// <returns>a representation of the item</returns>
 		R TransformItem(T item);
+
 		/// <summary>
 		/// Restores an item from a representation
 		/// </summary>
