@@ -4,18 +4,18 @@
 
 using Newtonsoft.Json;
 
-namespace FlitBit.Represent
-{	
+namespace FlitBit.Represent.Json
+{
 	/// <summary>
-	/// Transforms an items into a JSON representation, ignoring missing members.
+	/// Transforms an items into a JSON representation, erroring on missing members.
 	/// </summary>
 	/// <typeparam name="T">item type T</typeparam>
-	public class JsonRepresentationLoose<T> : JsonRepresentation<T>
+	public class JsonRepresentationStrict<T> : JsonRepresentation<T>
 		where T : class
 	{
 		/// <summary>
 		/// Creates a new instance.
 		/// </summary>
-		public JsonRepresentationLoose() : base(StaticJsonSettings.Loose) { }
+		public JsonRepresentationStrict() : base(StaticJsonSettings.Strict) { }
 	}
 }

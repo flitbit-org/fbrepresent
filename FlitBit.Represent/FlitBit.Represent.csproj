@@ -89,6 +89,16 @@
     <CodeContractsAnalysisWarningLevel>0</CodeContractsAnalysisWarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FlitBit.Core">
+      <HintPath>..\packages\FlitBit.Core.2.4.9.46943\lib\net40\FlitBit.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="FlitBit.Emit, Version=2.6.1.26575, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\FlitBit.Emit.2.6.1.26575\lib\net40\FlitBit.Emit.dll</HintPath>
+    </Reference>
+    <Reference Include="FlitBit.Wireup">
+      <HintPath>..\packages\FlitBit.Wireup.2.5.0.25837\lib\net40\FlitBit.Wireup.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -100,18 +110,29 @@
     <Compile Include="..\AssemblyInfo.corporate.cs">
       <Link>Properties\AssemblyInfo.corporate.cs</Link>
     </Compile>
-    <Compile Include="DelegatedJsonRepresentation.cs" />
+    <Compile Include="Bson\AutoImplementBsonRepresentationAttribute.cs" />
+    <Compile Include="Bson\BsonRepresentation.cs" />
+    <Compile Include="Bson\DelegatedBsonRepresentation.cs" />
+    <Compile Include="Bson\IBsonRepresentation.cs" />
+    <Compile Include="Bson\BsonRepresentation.loose.cs" />
+    <Compile Include="Bson\BsonRepresentation.strict.cs" />
+    <Compile Include="Json\AutoImplementJsonRepresentationAttribute.cs" />
+    <Compile Include="Json\DelegatedJsonRepresentation.cs" />
     <Compile Include="DelegatedRepresentation.cs" />
-    <Compile Include="IJsonRepresentation.cs" />
+    <Compile Include="Json\IJsonRepresentation.cs" />
     <Compile Include="IRepresentation.cs" />
-    <Compile Include="JsonRepresentation.cs" />
-    <Compile Include="JsonRepresentation.loose.cs" />
-    <Compile Include="JsonRepresentation.strict.cs" />
+    <Compile Include="Json\JsonRepresentation.cs" />
+    <Compile Include="Json\JsonRepresentation.loose.cs" />
+    <Compile Include="Json\JsonRepresentation.strict.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RepresentationBase.cs" />
+    <Compile Include="Wireup.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Binary\" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)\csproj-import-after.targets" Condition="Exists('$(MSBuildThisFileDirectory)\csproj-import-after.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

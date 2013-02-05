@@ -6,7 +6,7 @@ using System;
 using System.Diagnostics.Contracts;
 using Newtonsoft.Json;
 
-namespace FlitBit.Represent
+namespace FlitBit.Represent.Json
 {
 	internal static class StaticJsonSettings
 	{

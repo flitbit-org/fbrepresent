@@ -2,6 +2,7 @@
 // For licensing information see License.txt (MIT style licensing).
 #endregion
 
+using System.Diagnostics.Contracts;
 namespace FlitBit.Represent
 {
 	/// <summary>
@@ -24,5 +25,5 @@ namespace FlitBit.Represent
 		/// <param name="representation">the representation</param>
 		/// <returns>the restored item</returns>
 		T RestoreItem(R representation);
-	}
+	}	
 }
