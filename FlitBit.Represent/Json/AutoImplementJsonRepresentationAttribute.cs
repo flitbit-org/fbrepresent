@@ -2,7 +2,7 @@
 using System.Reflection;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
-using FlitBit.Emit.Meta;
+using FlitBit.Meta;
 
 namespace FlitBit.Represent.Json
 {

@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using FlitBit.Dto;
 using FlitBit.Core;
-using FlitBit.Wireup;
 using FlitBit.Represent.Json;
 using FlitBit.Represent.Tests.Models;
+using FlitBit.Wireup;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FlitBit.Represent.Tests
-{
-	
-
+{																					 
 	[TestClass]
 	public class JsonRepresentationTest
 	{
@@ -26,7 +20,7 @@ namespace FlitBit.Represent.Tests
 		public void JsonRepresentation_CanRoundTripGeneratedType()
 		{
 			var rand = new Random();
-			var factory = FactoryFactory.Instance;
+			var factory = FactoryProvider.Factory;
 			var rep = factory.CreateInstance<IJsonRepresentation<IMyModel>>();
 			Assert.IsNotNull(rep);
 

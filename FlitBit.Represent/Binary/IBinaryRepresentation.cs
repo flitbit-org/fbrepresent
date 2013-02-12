@@ -2,14 +2,14 @@
 // For licensing information see License.txt (MIT style licensing).
 #endregion
 
-namespace FlitBit.Represent.Bson
+namespace FlitBit.Represent.Binary
 {
 	/// <summary>
-	/// Transforms source item into a it's BSON representation
+	/// Transforms source item into a it's binary serialized representation.
 	/// </summary>
 	/// <typeparam name="T">item type T</typeparam>
-	[AutoImplementBsonRepresentation]
-	public interface IBsonRepresentation<T> : IRepresentation<T, byte[]>
+	[AutoImplementBinaryRepresentation]
+	public interface IBinaryRepresentation<T> : IRepresentation<T, byte[]>
 	{
 	}
 }

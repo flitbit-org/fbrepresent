@@ -1,6 +1,6 @@
 ﻿using System;
 using FlitBit.Core;
-using FlitBit.Represent.Bson;
+using FlitBit.Represent.Binary;
 using FlitBit.Represent.Tests.Models;
 using FlitBit.Wireup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,7 +9,7 @@ namespace FlitBit.Represent.Tests
 {
 	
 	[TestClass]
-	public class BsonRepresentationTest
+	public class BinaryRepresentationTest
 	{
 		[TestInitialize]
 		public void Init()
@@ -18,11 +18,11 @@ namespace FlitBit.Represent.Tests
 		}
 
 		[TestMethod]
-		public void BsonRepresentation_CanRoundTripGeneratedType()
+		public void BinaryRepresentation_CanRoundTripGeneratedType()
 		{
 			var rand = new Random();
 			var factory = FactoryProvider.Factory;
-			var rep = factory.CreateInstance<IBsonRepresentation<IMyModel>>();
+			var rep = factory.CreateInstance<IBinaryRepresentation<IMyModel>>();
 			Assert.IsNotNull(rep);
 
 			for (int i = 0; i < 10000; i++)

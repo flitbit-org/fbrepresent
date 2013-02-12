@@ -10,7 +10,7 @@
     <projectUrl>http://fbrepresent.codeplex.com/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Published to CodePlex and packaged for NuGet.</releaseNotes>
+    <releaseNotes>Updated dependencies; now using Core AutoImplementedAttribute instead of Emit.</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
 </package>

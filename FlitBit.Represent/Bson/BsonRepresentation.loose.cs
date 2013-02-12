@@ -3,8 +3,9 @@
 #endregion
 
 using Newtonsoft.Json;
+using FlitBit.Represent.Json;
 
-namespace FlitBit.Represent.Json
+namespace FlitBit.Represent.Bson
 {	
 	/// <summary>
 	/// Transforms an items into a BSON representation, ignoring missing members.

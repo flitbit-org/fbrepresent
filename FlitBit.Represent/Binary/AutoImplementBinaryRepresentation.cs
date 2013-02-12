@@ -1,27 +1,26 @@
 ﻿using System;
 using System.Reflection;
 using FlitBit.Core.Factory;
+using FlitBit.Core.Meta;
 using FlitBit.Emit;
 using FlitBit.Meta;
-using FlitBit.Core.Meta;
 
-namespace FlitBit.Represent.Bson
+namespace FlitBit.Represent.Binary
 {
 	/// <summary>
 	/// Automatically creates implementations of IBsonRepresentations.
 	/// </summary>
-	public sealed class AutoImplementBsonRepresentationAttribute: AutoImplementedAttribute
+	public sealed class AutoImplementBinaryRepresentationAttribute : AutoImplementedAttribute
 	{
 		static readonly MethodInfo GetImplementationType = typeof(IFactory).GetGenericMethod("GetImplementationType", 0, 1);
 
 		/// <summary>
 		/// Constructs a new instance.
 		/// </summary>
-		public AutoImplementBsonRepresentationAttribute()
+		public AutoImplementBinaryRepresentationAttribute()
 			: base(InstanceScopeKind.ContainerScope)
 		{		
 		}
-
 		/// <summary>
 		/// Automatically creates implementations of IBsonRepresentations.
 		/// </summary>
@@ -31,7 +30,7 @@ namespace FlitBit.Represent.Bson
 		/// <returns></returns>
 		public override bool GetImplementation<T>(IFactory factory, Action<Type, Func<T>> complete)
 		{
-			if (typeof(T).GetGenericTypeDefinition() == typeof(IBsonRepresentation<>))
+			if (typeof(T).GetGenericTypeDefinition() == typeof(IBinaryRepresentation<>))
 			{
 				var args = typeof(T).GetGenericArguments();
 				Type source = args[0];
@@ -43,8 +42,8 @@ namespace FlitBit.Represent.Bson
 					if (impl != null && impl.GetConstructor(Type.EmptyTypes) != null)
 					{
 						impl = (impl == source)
-							? typeof(BsonRepresentationLoose<>).MakeGenericType(source)
-							: typeof(DelegatedBsonRepresentationLoose<,>).MakeGenericType(source, impl);
+							? typeof(BinaryRepresentation<>).MakeGenericType(source)
+							: typeof(DelegatedBinaryRepresentation<,>).MakeGenericType(source, impl);
 						complete(impl, null);
 						return true;
 					}

@@ -9,11 +9,11 @@ using System.Text;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Bson;
 
-namespace FlitBit.Represent.Json
+namespace FlitBit.Represent.Bson
 {
 	
 	/// <summary>
-	/// Transforms source item into a it's JSON representation
+	/// Transforms source item into a it's BSON representation
 	/// </summary>
 	/// <typeparam name="T">item type T</typeparam>
 	public class BsonRepresentation<T> : RepresentationBase<T, byte[]>, IBsonRepresentation<T>
