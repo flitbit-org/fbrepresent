@@ -6,7 +6,7 @@ using FlitBit.Dto;
 
 namespace FlitBit.Represent.Tests.Models
 {
-	[DTO]
+	[DTOAttribute]
 	public interface IMyModel
 	{
 		int ID { get; set; }

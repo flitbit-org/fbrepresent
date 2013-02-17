@@ -2,7 +2,6 @@
 using System.Reflection;
 using FlitBit.Core.Factory;
 using FlitBit.Emit;
-using FlitBit.Meta;
 using FlitBit.Core.Meta;
 
 namespace FlitBit.Represent.Bson
