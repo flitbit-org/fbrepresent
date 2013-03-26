@@ -7,21 +7,20 @@ using FlitBit.Emit;
 namespace FlitBit.Represent.Binary
 {
 	/// <summary>
-	/// Automatically creates implementations of IBsonRepresentations.
+	///   Automatically creates implementations of IBsonRepresentations.
 	/// </summary>
 	public sealed class AutoImplementBinaryRepresentationAttribute : AutoImplementedAttribute
 	{
-		static readonly MethodInfo GetImplementationType = typeof(IFactory).GetGenericMethod("GetImplementationType", 0, 1);
+		static readonly MethodInfo GetImplementationType = typeof(IFactory).MatchGenericMethod("GetImplementationType", 1, typeof(Type));
 
 		/// <summary>
-		/// Constructs a new instance.
+		///   Constructs a new instance.
 		/// </summary>
 		public AutoImplementBinaryRepresentationAttribute()
-			: base(InstanceScopeKind.ContainerScope)
-		{		
-		}
+			: base(InstanceScopeKind.ContainerScope) { }
+
 		/// <summary>
-		/// Automatically creates implementations of IBsonRepresentations.
+		///   Automatically creates implementations of IBsonRepresentations.
 		/// </summary>
 		/// <typeparam name="T"></typeparam>
 		/// <param name="factory"></param>
@@ -32,10 +31,11 @@ namespace FlitBit.Represent.Binary
 			if (typeof(T).GetGenericTypeDefinition() == typeof(IBinaryRepresentation<>))
 			{
 				var args = typeof(T).GetGenericArguments();
-				Type source = args[0];
+				var source = args[0];
 				if (!source.IsValueType)
 				{
-					Type impl = (Type)GetImplementationType.MakeGenericMethod(source).Invoke(factory, new object[0]);
+					var getImpl = GetImplementationType.MakeGenericMethod(source);
+					var impl = (Type)getImpl.Invoke(factory, null);
 
 					// Can deserialize if the implementation type has a default constructor...
 					if (impl != null && impl.GetConstructor(Type.EmptyTypes) != null)

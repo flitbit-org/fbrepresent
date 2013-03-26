@@ -6,15 +6,12 @@ using FlitBit.Wireup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FlitBit.Represent.Tests
-{																					 
+{
 	[TestClass]
 	public class JsonRepresentationTest
 	{
 		[TestInitialize]
-		public void Init()
-		{
-			WireupCoordinator.SelfConfigure();
-		}
+		public void Init() { WireupCoordinator.SelfConfigure(); }
 
 		[TestMethod]
 		public void JsonRepresentation_CanRoundTripGeneratedType()
@@ -24,7 +21,7 @@ namespace FlitBit.Represent.Tests
 			var rep = factory.CreateInstance<IJsonRepresentation<IMyModel>>();
 			Assert.IsNotNull(rep);
 
-			for (int i = 0; i < 10000; i++)
+			for (var i = 0; i < 10000; i++)
 			{
 				var my = factory.CreateInstance<IMyModel>();
 				my.Created = DateTime.Now;
@@ -36,7 +33,7 @@ namespace FlitBit.Represent.Tests
 				Assert.AreEqual(my.ID, nother.ID);
 				Assert.AreEqual(my.Name, nother.Name);
 				Assert.AreEqual(my.Created, nother.Created);
-			}			
+			}
 		}
 	}
 }
