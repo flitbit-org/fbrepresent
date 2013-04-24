@@ -128,6 +128,7 @@
     <Compile Include="DelegatedRepresentation.cs" />
     <Compile Include="Json\DelegatedJsonRepresentationLoose.cs" />
     <Compile Include="Json\DelegatedJsonRepresentationStrict.cs" />
+    <Compile Include="Json\DtoConverter.cs" />
     <Compile Include="Json\IJsonRepresentation.cs" />
     <Compile Include="IRepresentation.cs" />
     <Compile Include="Json\JsonRepresentation.cs" />

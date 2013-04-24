@@ -7,13 +7,15 @@ namespace FlitBit.Represent.Json
 		internal static readonly JsonSerializerSettings Loose = new JsonSerializerSettings
 		{
 			MissingMemberHandling = MissingMemberHandling.Ignore,
-			ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+			ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            Converters = new[] { new DtoConverter() }
 		};
 
 		internal static readonly JsonSerializerSettings Strict = new JsonSerializerSettings
 		{
 			MissingMemberHandling = MissingMemberHandling.Error,
-			ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+			ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
+            Converters = new[] { new DtoConverter() }
 		};
 	}
 }
