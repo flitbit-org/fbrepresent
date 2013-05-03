@@ -80,8 +80,12 @@ namespace FlitBit.Represent.Json
         /// <returns></returns>
         public override bool CanConvert(Type objectType)
         {
-            var canContruct = CanConstructMethod.MakeGenericMethod(objectType);
-            return (bool)canContruct.Invoke(this, new object[] { });
+            if (objectType.IsAbstract || objectType.IsInterface)
+            {
+                var canContruct = CanConstructMethod.MakeGenericMethod(objectType);
+                return (bool)canContruct.Invoke(this, new object[] { });
+            }
+            return false;
         }
 
         bool CanConstruct<TNew>()
