@@ -1,17 +1,25 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection;
+using FlitBit.Copy;
 using FlitBit.Core;
+using FlitBit.Emit;
 using FlitBit.Represent.Json;
 using FlitBit.Represent.Tests.Models;
 using FlitBit.Wireup;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Newtonsoft.Json;
 
 namespace FlitBit.Represent.Tests
 {
 	[TestClass]
 	public class JsonRepresentationTest
-	{
+	{	
 		[TestInitialize]
-		public void Init() { WireupCoordinator.SelfConfigure(); }
+		public void Init()
+		{
+			WireupCoordinator.SelfConfigure();
+		}
 
 		[TestMethod]
 		public void JsonRepresentation_CanRoundTripGeneratedType()
@@ -29,6 +37,7 @@ namespace FlitBit.Represent.Tests
 				my.Name = String.Concat("MyIdentityIs", my.ID);
 
 				var ser = rep.TransformItem(my);
+
 				var nother = rep.RestoreItem(ser);
 				Assert.AreEqual(my.ID, nother.ID);
 				Assert.AreEqual(my.Name, nother.Name);

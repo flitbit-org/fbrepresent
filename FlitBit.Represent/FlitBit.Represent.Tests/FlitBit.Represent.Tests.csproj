@@ -35,32 +35,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FlitBit.Copy, Version=2.7.2.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.Copy, Version=2.8.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\FlitBit.Copy.2.7.2\lib\net40\FlitBit.Copy.dll</HintPath>
+      <HintPath>..\..\packages\FlitBit.Copy.2.8.0\lib\net40\FlitBit.Copy.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Core, Version=2.10.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.Core, Version=2.11.3.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\FlitBit.Core.2.10.0\lib\net40\FlitBit.Core.dll</HintPath>
+      <HintPath>..\..\packages\FlitBit.Core.2.11.3\lib\net40\FlitBit.Core.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Dto, Version=2.2.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.Dto, Version=2.2.1.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\FlitBit.Dto.2.2.0\lib\net40\FlitBit.Dto.dll</HintPath>
+      <HintPath>..\..\packages\FlitBit.Dto.2.2.1\lib\net40\FlitBit.Dto.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Emit, Version=2.8.3.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.Emit, Version=2.8.4.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\FlitBit.Emit.2.8.3\lib\net40\FlitBit.Emit.dll</HintPath>
+      <HintPath>..\..\packages\FlitBit.Emit.2.8.4\lib\net40\FlitBit.Emit.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.IoC, Version=2.8.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+    <Reference Include="FlitBit.IoC, Version=2.9.0.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\FlitBit.IoC.2.8.0\lib\net40\FlitBit.IoC.dll</HintPath>
+      <HintPath>..\..\packages\FlitBit.IoC.2.9.0\lib\net40\FlitBit.IoC.dll</HintPath>
     </Reference>
-    <Reference Include="FlitBit.Wireup, Version=2.5.4.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\FlitBit.Wireup.2.5.4\lib\net40\FlitBit.Wireup.dll</HintPath>
+    <Reference Include="FlitBit.Wireup, Version=2.5.6.0, Culture=neutral, PublicKeyToken=38f03d0878531ff3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FlitBit.Wireup.2.5.6\lib\net40\FlitBit.Wireup.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.5.0.4\lib\net40\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -78,6 +79,7 @@
     <Compile Include="Models\IMyModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JsonRepresentationTest.cs" />
+    <Compile Include="Wireup.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FlitBit.Represent.csproj">

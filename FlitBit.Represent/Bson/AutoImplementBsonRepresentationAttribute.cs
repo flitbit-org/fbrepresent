@@ -11,8 +11,6 @@ namespace FlitBit.Represent.Bson
 	/// </summary>
 	public sealed class AutoImplementBsonRepresentationAttribute : AutoImplementedAttribute
 	{
-		static readonly MethodInfo GetImplementationType = typeof(IFactory).MatchGenericMethod("GetImplementationType", 1, typeof(Type));
-
 		/// <summary>
 		///   Constructs a new instance.
 		/// </summary>
@@ -20,23 +18,27 @@ namespace FlitBit.Represent.Bson
 			: base(InstanceScopeKind.ContainerScope) { }
 
 		/// <summary>
-		///   Automatically creates implementations of IBsonRepresentations.
+		/// Gets the implementation for type
 		/// </summary>
-		/// <typeparam name="T"></typeparam>
-		/// <param name="factory"></param>
-		/// <param name="complete"></param>
-		/// <returns></returns>
-		public override bool GetImplementation<T>(IFactory factory, Action<Type, Func<T>> complete)
+		/// <param name="factory">the factory from which the type was requested.</param><param name="type">the target types</param><param name="complete">callback invoked when the implementation is available</param>
+		/// <returns>
+		/// <em>true</em> if implemented; otherwise <em>false</em>.
+		/// </returns>
+		/// <exception cref="T:System.ArgumentException">thrown if <paramref name="type"/> is not eligible for implementation</exception>
+		/// <remarks>
+		/// If the <paramref name="complete"/> callback is invoked, it must be given either an implementation type
+		///               assignable to type T, or a factory function that creates implementations of type T.
+		/// </remarks>
+		public override bool GetImplementation(IFactory factory, Type type, Action<Type, Func<object>> complete)
 		{
-			if (typeof(T).GetGenericTypeDefinition() == typeof(IBsonRepresentation<>))
+			if (type.GetGenericTypeDefinition() == typeof(IBsonRepresentation<>))
 			{
-				var args = typeof(T).GetGenericArguments();
+				var args = type.GetGenericArguments();
 				var source = args[0];
 				if (!source.IsValueType)
 				{
-					var getImpl = GetImplementationType.MakeGenericMethod(source);
-					var impl = (Type)getImpl.Invoke(factory, null);
-
+					var impl = factory.GetImplementationType(source);
+					
 					// Can deserialize if the implementation type has a default constructor...
 					if (impl != null && impl.GetConstructor(Type.EmptyTypes) != null)
 					{
