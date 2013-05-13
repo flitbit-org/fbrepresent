@@ -1,15 +1,15 @@
-﻿using FlitBit.Represent;
-using FlitBit.Wireup;
+﻿using FlitBit.Wireup;
 using FlitBit.Wireup.Meta;
 
-[assembly: Wireup(typeof(WireupThisAssembly))]
+[assembly: WireupDependency(typeof(FlitBit.Wireup.AssemblyWireup))]
+[assembly: Wireup(typeof(FlitBit.Represent.AssemblyWireup))]
 
 namespace FlitBit.Represent
 {
 	/// <summary>
 	///   Wires up this assembly.
 	/// </summary>
-	public sealed class WireupThisAssembly : IWireupCommand
+	public sealed class AssemblyWireup : IWireupCommand
 	{
 		#region IWireupCommand Members
 
@@ -17,7 +17,8 @@ namespace FlitBit.Represent
 		///   Wires up this assembly.
 		/// </summary>
 		/// <param name="coordinator"></param>
-		public void Execute(IWireupCoordinator coordinator) { }
+		public void Execute(IWireupCoordinator coordinator)
+		{}
 
 		#endregion
 	}

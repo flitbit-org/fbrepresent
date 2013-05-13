@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using FlitBit.Core;
 using FlitBit.Core.Factory;
+using FlitBit.Emit;
 using FlitBit.Represent.Json;
 using FlitBit.Represent.Tests.Models;
 using FlitBit.Wireup;
@@ -15,10 +16,21 @@ namespace FlitBit.Represent.Tests
 	{
 		static Random _random = new Random(Environment.TickCount);
 
+		public TestContext TestContext { get; set; }
+
 		[TestInitialize]
 		public void Init()
 		{
+			RuntimeAssemblies.WriteDynamicAssemblyOnExit = true;
 			WireupCoordinator.SelfConfigure();
+		}
+
+		[TestCleanup]
+		public void Cleanup()
+		{
+			var report = WireupCoordinator.Instance.ReportWireupHistory();
+			TestContext.WriteLine("---------- Wireup Report ----------");
+			TestContext.WriteLine(report);
 		}
 
 		[TestMethod]

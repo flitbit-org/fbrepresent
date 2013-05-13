@@ -1,5 +1,6 @@
 ﻿using System;
 using FlitBit.Core;
+using FlitBit.Emit;
 using FlitBit.Represent.Bson;
 using FlitBit.Represent.Tests.Models;
 using FlitBit.Wireup;
@@ -10,6 +11,23 @@ namespace FlitBit.Represent.Tests
 	[TestClass]
 	public class BsonRepresentationTest
 	{
+		public TestContext TestContext { get; set; }
+
+		[TestInitialize]
+		public void Init()
+		{
+			RuntimeAssemblies.WriteDynamicAssemblyOnExit = true;
+			WireupCoordinator.SelfConfigure();
+		}
+
+		[TestCleanup]
+		public void Cleanup()
+		{
+			var report = WireupCoordinator.Instance.ReportWireupHistory();
+			TestContext.WriteLine("---------- Wireup Report ----------");
+			TestContext.WriteLine(report);
+		}
+
 		[TestMethod]
 		public void BsonRepresentation_CanRoundTripGeneratedType()
 		{
@@ -33,8 +51,5 @@ namespace FlitBit.Represent.Tests
 				Assert.AreEqual(my.Created.ToLongDateString(), nother.Created.ToLongDateString());
 			}
 		}
-
-		[TestInitialize]
-		public void Init() { WireupCoordinator.SelfConfigure(); }
 	}
 }

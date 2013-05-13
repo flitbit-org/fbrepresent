@@ -1,5 +1,6 @@
 ﻿using System;
 using FlitBit.Core;
+using FlitBit.Emit;
 using FlitBit.Represent.Binary;
 using FlitBit.Represent.Tests.Models;
 using FlitBit.Wireup;
@@ -10,6 +11,23 @@ namespace FlitBit.Represent.Tests
 	[TestClass]
 	public class BinaryRepresentationTest
 	{
+		public TestContext TestContext { get; set; }
+
+		[TestInitialize]
+		public void Init()
+		{
+			RuntimeAssemblies.WriteDynamicAssemblyOnExit = true;
+			WireupCoordinator.SelfConfigure();
+		}
+
+		[TestCleanup]
+		public void Cleanup()
+		{
+			var report = WireupCoordinator.Instance.ReportWireupHistory();
+			TestContext.WriteLine("---------- Wireup Report ----------");
+			TestContext.WriteLine(report);
+		}
+
 		[TestMethod]
 		public void BinaryRepresentation_CanRoundTripGeneratedType()
 		{
@@ -34,7 +52,6 @@ namespace FlitBit.Represent.Tests
 			}
 		}
 
-		[TestInitialize]
-		public void Init() { WireupCoordinator.SelfConfigure(); }
+		
 	}
 }
