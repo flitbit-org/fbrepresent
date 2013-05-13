@@ -10,7 +10,7 @@
     <projectUrl>http://fbrepresent.codeplex.com/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Updated dependencies; now using Core AutoImplementedAttribute instead of Emit.</releaseNotes>
+    <releaseNotes>Compatibility update for FlitBit.Wireup v3.0.</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
 </package>
