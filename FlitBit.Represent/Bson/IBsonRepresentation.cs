@@ -12,5 +12,6 @@ namespace FlitBit.Represent.Bson
 	/// <typeparam name="T">item type T</typeparam>
 	[AutoImplementBsonRepresentation]
 	public interface IBsonRepresentation<T> : IRepresentation<T, byte[]>
-	{}
+	{
+	}
 }

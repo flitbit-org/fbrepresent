@@ -12,5 +12,6 @@ namespace FlitBit.Represent.Json
 	/// <typeparam name="T">item type T</typeparam>
 	[AutoImplementJsonRepresentation]
 	public interface IJsonRepresentation<T> : IRepresentation<T, string>
-	{}
+	{
+	}
 }

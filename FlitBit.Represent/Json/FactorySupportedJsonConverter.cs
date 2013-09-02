@@ -11,15 +11,12 @@ namespace FlitBit.Represent.Json
 	public class FactorySupportedJsonConverter : JsonConverter
 	{
 		/// <summary>
-		///   Creates a DTO Converter
-		/// </summary>
-		public FactorySupportedJsonConverter()
-		{}
-
-		/// <summary>
 		///   We don't need to serialize, therefore, false
 		/// </summary>
-		public override bool CanWrite { get { return false; } }
+		public override bool CanWrite
+		{
+			get { return false; }
+		}
 
 		/// <summary>
 		///   Determines if we can convert the type.
@@ -47,17 +44,17 @@ namespace FlitBit.Represent.Json
 		{
 			JsonReader objectReader = null;
 
-			var instance = FactoryProvider.Factory.CreateInstance(objectType);
+			object instance = FactoryProvider.Factory.CreateInstance(objectType);
 
 			if (reader.TokenType == JsonToken.StartObject)
 			{
-				var jObject = JObject.Load(reader);
+				JObject jObject = JObject.Load(reader);
 				objectReader = jObject.CreateReader();
 			}
 
 			if (reader.TokenType == JsonToken.StartArray)
 			{
-				var jArray = JArray.Load(reader);
+				JArray jArray = JArray.Load(reader);
 				objectReader = jArray.CreateReader();
 			}
 

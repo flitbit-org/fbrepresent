@@ -11,13 +11,16 @@ namespace FlitBit.Represent.Binary
 	/// </summary>
 	/// <typeparam name="T">delegated target type T</typeparam>
 	/// <typeparam name="TConcrete">target type C</typeparam>
-	public class DelegatedBinaryRepresentation<T, TConcrete> : DelegatedRepresentation<T, TConcrete, byte[]>, IBinaryRepresentation<T>
+	public class DelegatedBinaryRepresentation<T, TConcrete> : DelegatedRepresentation<T, TConcrete, byte[]>,
+		IBinaryRepresentation<T>
 		where TConcrete : class, T
 	{
 		/// <summary>
 		///   Creates a new instance.
 		/// </summary>
 		public DelegatedBinaryRepresentation()
-			: base(new BinaryRepresentation<TConcrete>()) { }
+			: base(new BinaryRepresentation<TConcrete>())
+		{
+		}
 	}
 }

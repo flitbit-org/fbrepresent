@@ -18,7 +18,7 @@ namespace FlitBit.Represent.Bson
 	/// <typeparam name="T">item type T</typeparam>
 	public class BsonRepresentation<T> : RepresentationBase<T, byte[]>, IBsonRepresentation<T>
 	{
-		readonly JsonSerializerSettings _settings;
+		private readonly JsonSerializerSettings _settings;
 
 		/// <summary>
 		///   Creates a new instance with serializer settings given.
@@ -43,7 +43,7 @@ namespace FlitBit.Represent.Bson
 			{
 				using (var writer = new BsonWriter(stream))
 				{
-					var serializer = JsonSerializer.Create(_settings);
+					JsonSerializer serializer = JsonSerializer.Create(_settings);
 					serializer.Serialize(writer, item);
 					return stream.ToArray();
 				}
@@ -62,8 +62,8 @@ namespace FlitBit.Represent.Bson
 			{
 				using (var reader = new BsonReader(stream))
 				{
-					var jsonSerializer = JsonSerializer.Create(_settings);
-					return (T) jsonSerializer.Deserialize(reader, typeof(T));
+					JsonSerializer jsonSerializer = JsonSerializer.Create(_settings);
+					return (T) jsonSerializer.Deserialize(reader, typeof (T));
 				}
 			}
 		}

@@ -11,7 +11,8 @@ namespace FlitBit.Represent.Json
 	/// </summary>
 	/// <typeparam name="T">delegated target type T</typeparam>
 	/// <typeparam name="TRepresentation">target type C</typeparam>
-	public class DelegatedJsonRepresentation<T, TRepresentation> : DelegatedRepresentation<T, TRepresentation, string>, IJsonRepresentation<T>
+	public class DelegatedJsonRepresentation<T, TRepresentation> : DelegatedRepresentation<T, TRepresentation, string>,
+		IJsonRepresentation<T>
 		where TRepresentation : class, T
 	{
 		/// <summary>
@@ -22,6 +23,8 @@ namespace FlitBit.Represent.Json
 			: base(
 				(strict)
 					? new JsonRepresentationStrict<TRepresentation>()
-					: (IRepresentation<TRepresentation, string>) new JsonRepresentationLoose<TRepresentation>()) { }
+					: (IRepresentation<TRepresentation, string>) new JsonRepresentationLoose<TRepresentation>())
+		{
+		}
 	}
 }

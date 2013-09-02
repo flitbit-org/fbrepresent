@@ -19,6 +19,8 @@ namespace FlitBit.Represent.Bson
 		///   Creates a new instance.
 		/// </summary>
 		public BsonRepresentationLoose()
-			: base(StaticJsonSettings.Loose) { }
+			: base(StaticJsonSettings.Loose)
+		{
+		}
 	}
 }

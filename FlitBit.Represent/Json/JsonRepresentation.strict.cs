@@ -17,6 +17,8 @@ namespace FlitBit.Represent.Json
 		///   Creates a new instance.
 		/// </summary>
 		public JsonRepresentationStrict()
-			: base(StaticJsonSettings.Strict) { }
+			: base(StaticJsonSettings.Strict)
+		{
+		}
 	}
 }

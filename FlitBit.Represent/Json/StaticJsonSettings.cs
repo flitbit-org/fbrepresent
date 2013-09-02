@@ -8,14 +8,14 @@ namespace FlitBit.Represent.Json
 		{
 			MissingMemberHandling = MissingMemberHandling.Ignore,
 			ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-			Converters = new[] { new FactorySupportedJsonConverter() }
+			Converters = new[] {new FactorySupportedJsonConverter()}
 		};
 
 		internal static readonly JsonSerializerSettings Strict = new JsonSerializerSettings
 		{
 			MissingMemberHandling = MissingMemberHandling.Error,
 			ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
-			Converters = new[] { new FactorySupportedJsonConverter() }
+			Converters = new[] {new FactorySupportedJsonConverter()}
 		};
 	}
 }

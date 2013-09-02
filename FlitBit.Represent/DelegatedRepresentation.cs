@@ -19,7 +19,7 @@ namespace FlitBit.Represent
 	public class DelegatedRepresentation<T, TConcrete, TRepresentation> : IRepresentation<T, TRepresentation>
 		where TConcrete : class, T
 	{
-		readonly IRepresentation<TConcrete, TRepresentation> _transform;
+		private readonly IRepresentation<TConcrete, TRepresentation> _transform;
 
 		/// <summary>
 		///   Creates a new instance.

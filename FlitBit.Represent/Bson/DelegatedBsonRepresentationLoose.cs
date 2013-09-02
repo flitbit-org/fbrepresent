@@ -12,6 +12,8 @@
 		///   Creates a new instance.
 		/// </summary>
 		public DelegatedBsonRepresentationLoose()
-			: base(false) { }
+			: base(false)
+		{
+		}
 	}
 }

@@ -16,7 +16,7 @@ namespace FlitBit.Represent.Json
 	/// <typeparam name="T">item type T</typeparam>
 	public class JsonRepresentation<T> : RepresentationBase<T, string>, IJsonRepresentation<T>
 	{
-		readonly JsonSerializerSettings _settings;
+		private readonly JsonSerializerSettings _settings;
 
 		/// <summary>
 		///   Creates a new instance with serializer settings given.
@@ -35,14 +35,20 @@ namespace FlitBit.Represent.Json
 		/// </summary>
 		/// <param name="item">the item</param>
 		/// <returns>JSON representation of the item</returns>
-		public override string TransformItem(T item) { return JsonConvert.SerializeObject(item, Formatting.None, _settings); }
+		public override string TransformItem(T item)
+		{
+			return JsonConvert.SerializeObject(item, Formatting.None, _settings);
+		}
 
 		/// <summary>
 		///   Restores an item from it's JSON representation
 		/// </summary>
 		/// <param name="json">the item's JSON representation</param>
 		/// <returns>the restored item</returns>
-		public override T RestoreItem(string json) { return JsonConvert.DeserializeObject<T>(json, _settings); }
+		public override T RestoreItem(string json)
+		{
+			return JsonConvert.DeserializeObject<T>(json, _settings);
+		}
 
 		#endregion
 	}

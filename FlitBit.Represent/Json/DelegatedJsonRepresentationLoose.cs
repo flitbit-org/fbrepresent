@@ -12,6 +12,8 @@
 		///   Creates a new instance.
 		/// </summary>
 		public DelegatedJsonRepresentationLoose()
-			: base(false) { }
+			: base(false)
+		{
+		}
 	}
 }

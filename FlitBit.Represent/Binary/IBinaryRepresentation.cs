@@ -12,5 +12,6 @@ namespace FlitBit.Represent.Binary
 	/// <typeparam name="T">item type T</typeparam>
 	[AutoImplementBinaryRepresentation]
 	public interface IBinaryRepresentation<T> : IRepresentation<T, byte[]>
-	{}
+	{
+	}
 }

@@ -11,7 +11,8 @@ namespace FlitBit.Represent.Bson
 	/// </summary>
 	/// <typeparam name="T">delegated target type T</typeparam>
 	/// <typeparam name="TConcrete">target type C</typeparam>
-	public class DelegatedBsonRepresentation<T, TConcrete> : DelegatedRepresentation<T, TConcrete, byte[]>, IBsonRepresentation<T>
+	public class DelegatedBsonRepresentation<T, TConcrete> : DelegatedRepresentation<T, TConcrete, byte[]>,
+		IBsonRepresentation<T>
 		where TConcrete : class, T
 	{
 		/// <summary>
@@ -22,6 +23,8 @@ namespace FlitBit.Represent.Bson
 			: base(
 				(strict)
 					? new BsonRepresentationStrict<TConcrete>()
-					: (IRepresentation<TConcrete, byte[]>) new BsonRepresentationLoose<TConcrete>()) { }
+					: (IRepresentation<TConcrete, byte[]>) new BsonRepresentationLoose<TConcrete>())
+		{
+		}
 	}
 }
