@@ -10,7 +10,7 @@
     <projectUrl>http://fbrepresent.codeplex.com/</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Compatibility update for FlitBit.Wireup v3.0.</releaseNotes>
+    <releaseNotes>Leveled up to latest framework NuGets.</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
 </package>
