@@ -1,7 +1,6 @@
 ﻿using FlitBit.Wireup;
 using FlitBit.Wireup.Meta;
 
-[assembly: WireupDependency(typeof(FlitBit.Wireup.AssemblyWireup))]
 [assembly: Wireup(typeof(FlitBit.Represent.AssemblyWireup))]
 
 namespace FlitBit.Represent

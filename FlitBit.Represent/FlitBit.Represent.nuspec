@@ -6,11 +6,11 @@
     <title>$title$</title>
     <authors>Phillip Clark</authors>
     <owners>flitbit.org</owners>
-    <licenseUrl>http://fbrepresent.codeplex.com/license</licenseUrl>
-    <projectUrl>http://fbrepresent.codeplex.com/</projectUrl>
+    <licenseUrl>https://raw.github.com/flitbit-org/fbrepresent/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/flitbit-org/fbrepresent</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Compatibility update for FlitBit.Wireup v3.0.</releaseNotes>
+    <releaseNotes>Moved repository to github.</releaseNotes>
     <copyright>Copyright 2013</copyright>
   </metadata>
 </package>
